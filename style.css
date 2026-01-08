@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: #ffffff;
+    scroll-behavior: smooth;
+}
+
+/* Navbar */
+header {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 60px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(14px);
+    transition: 0.4s ease;
+}
+
+.navbar.scrolled {
+    background: rgba(0, 0, 0, 0.65);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: 700;
+}
+
+/* Menu */
+.nav-menu {
+    display: flex;
+    list-style: none;
+}
+
+.nav-link {
+    margin-left: 30px;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 18px;
+    position: relative;
+}
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background: #00e5ff;
+    left: 0;
+    bottom: -6px;
+    transition: 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* CTA Button */
+.cta-btn {
+    display: inline-block;
+    padding: 14px 34px;
+    border-radius: 30px;
+    background: linear-gradient(90deg, #00e5ff, #00bcd4);
+    color: #000;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+/* Hamburger */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    height: 3px;
+    width: 25px;
+    background: #fff;
+    margin: 4px 0;
+}
+
+/* Sections */
+.section {
+    height: 100vh;
+    padding: 120px 10%;
+    text-align: center;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 22px;
+}
+
+.hero h1 {
+    font-size: 54px;
+}
+
+.hero p {
+    font-size: 20px;
+    opacity: 0.9;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-menu {
+        position: absolute;
+        top: 70px;
+        right: -100%;
+        width: 220px;
+        background: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        text-align: center;
+        transition: 0.4s ease;
+    }
+
+    .nav-menu.active {
+        right: 0;
+    }
+
+    .nav-link {
+        margin: 20px 0;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+}
